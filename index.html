@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NEVERMISS — голосовой помощник на пропущенные звонки клиники, Новосибирск</title>
+<meta name="description" content="Голосовой помощник для стоматологий и клиник Новосибирска: отвечает, когда администратор занят или клиника закрыта, и передаёт заявку администратору. Пилот 14 дней — 9 900 ₽.">
+<meta name="keywords" content="пропущенные звонки клиника, голосовой помощник стоматология, автоответчик для клиники, ИИ администратор Новосибирск">
+<meta property="og:title" content="NEVERMISS — звонок, который администратор не успел взять, больше не теряется">
+<meta property="og:description" content="Помощник отвечает через 10 секунд и передаёт заявку администратору. Пилот 14 дней — 9 900 ₽.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta name="robots" content="index,follow">
+<!-- yandex-verification и google-site-verification: вставить сюда мета-теги из Яндекс Вебмастера и Google Search Console -->
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: single column, phone-first; offer cards side by side on wide screens; offer text in collapsible block; sticky CTA bar on phones */
+:root{
+  --bg:#F3F7F6; --card:#FFFFFF; --fg:#13221E; --muted:#586964; --line:#D6E2DE;
+  --accent:#0C7A63; --accent-ink:#FFFFFF; --soft:#E1F1EC; --warn:#9A5B12;
+  --display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1614; --card:#15201D; --fg:#E4EEEB; --muted:#93A6A0; --line:#25342F;
+  --accent:#42C9A5; --accent-ink:#06231C; --soft:#183A31; --warn:#E3A55A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1614; --card:#15201D; --fg:#E4EEEB; --muted:#93A6A0; --line:#25342F;
+  --accent:#42C9A5; --accent-ink:#06231C; --soft:#183A31; --warn:#E3A55A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-inline:16px;padding-block:24px 96px}
+.wrap{max-width:820px;margin:0 auto;display:grid;gap:52px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,44px);font-weight:700}
+h2{font-size:clamp(20px,4vw,26px);font-weight:500}
+h3{font-size:17px;font-weight:500}
+p{margin:0}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-size:14px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.top a{color:var(--fg);text-decoration:none;font-weight:600;font-variant-numeric:tabular-nums}
+.hero{display:grid;gap:18px}
+.lead{font-size:18px;color:var(--muted);max-width:60ch}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:12px;text-decoration:none;border:1.5px solid var(--accent);color:var(--accent);background:transparent;font:600 15px/1 var(--body);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
+section{display:grid;gap:18px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:14px;align-content:start;min-width:0}
+.tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.price{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:14px}
+.price b{font-family:var(--display);font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.price span{color:var(--muted);font-size:14px}
+ul.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.ticks li{padding-left:22px;position:relative}
+ul.ticks li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+.check{background:var(--soft);border-radius:16px;padding:20px 22px;display:grid;gap:10px}
+.check .when{display:flex;flex-wrap:wrap;gap:8px}
+.check .when span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;font-variant-numeric:tabular-nums}
+.call{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:10px}
+.line{display:grid;grid-template-columns:84px 1fr;gap:10px}
+.who{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding-top:3px;color:var(--muted)}
+.bot .who{color:var(--accent)}
+.pat p{color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:36px 1fr;gap:12px}
+.steps li::before{counter-increment:s;content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-variant-numeric:tabular-nums}
+blockquote{margin:0;border-left:3px solid var(--accent);padding:4px 0 4px 18px;display:grid;gap:8px}
+blockquote p{font-size:17px}
+cite{font-style:normal;color:var(--muted);font-size:14px}
+.stats{display:flex;flex-wrap:wrap;gap:28px}
+.stat b{display:block;font-family:var(--display);font-size:34px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{color:var(--muted);font-size:14px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+details+details{margin-top:-6px}
+summary{cursor:pointer;font-weight:600;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--accent);font-weight:700}
+details[open] summary::after{content:"−"}
+.offer{display:grid;gap:10px;margin-top:12px;font-size:15px}
+.offer h3{margin-top:8px}
+.offer ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.small{font-size:13px;color:var(--muted)}
+.partners{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:8px}
+.cta{background:var(--soft);border-radius:18px;padding:24px;display:grid;gap:14px}
+.copybox{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.copybox code{font:500 14px/1.4 var(--body);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;flex:1 1 260px;min-width:0;user-select:all}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--line);display:none;gap:8px}
+.bar .btn{flex:1}
+@media (max-width:640px){.bar{display:flex}}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .12s}.btn:active{transform:scale(.98)}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span class="brand">NEVERMISS</span>
+    <a href="https://t.me/+79137640735" target="_blank" rel="noopener">+7 913 764-07-35</a>
+  </div>
+
+  <header class="hero">
+    <h1>Звонок, который администратор не успел взять, больше не теряется</h1>
+    <p class="lead">Если администратор занят с пациентом или клиника уже закрыта, через 10 секунд отвечает голосовой помощник. Он узнаёт, что нужно человеку, и через минуту заявка у вашего администратора. Начните с пилота на 14 дней.</p>
+    <div class="btns">
+      <a class="btn primary" href="#start">Начать пилот</a>
+      <a class="btn" href="#demo">Послушать, как звучит</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="check">
+      <h2>Сначала посчитаем, сколько звонков вы теряете</h2>
+      <p>Бесплатно посмотрим вместе журнал звонков за неделю: сколько вызовов осталось без ответа и скольким потом не перезвонили. Занимает 15 минут. Если пропущенных мало, честно скажем, что помощник вам не нужен.</p>
+      <div class="when"><span>обед 13:00–15:00</span><span>после закрытия</span><span>выходные</span><span>пиковые часы</span></div>
+      <p class="small">Обычно звонки теряются именно в эти часы.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Что подключаем</h2>
+    <div class="products">
+      <div class="card">
+        <span class="tag">Клиника</span>
+        <h3>Помощник на звонки, которые не принял администратор</h3>
+        <ul class="ticks">
+          <li>Отвечает через 10 секунд, если администратор занят или клиника закрыта</li>
+          <li>Узнаёт, что нужно, имя и удобное время; номер определяет сам</li>
+          <li>Передаёт заявку администратору, он перезванивает и записывает</li>
+          <li>Подключается переадресацией у вашего оператора, порядок работы не меняется</li>
+        </ul>
+        <div class="price">
+          <b>9 900 ₽</b><span>пилот на 14 дней: настройка, работа и отчёт. Засчитывается в подключение</span>
+          <b>14 900 ₽</b><span>в месяц дальше, до 500 минут разговоров. Только если решите продолжить</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Сеть клиник</span>
+        <h3>Перехват звонков по всем филиалам и единому номеру</h3>
+        <ul class="ticks">
+          <li>Аудит: звоним во все филиалы в обед, вечером и в выходные и считаем, где не берут трубку</li>
+          <li>Сценарий под каждый филиал: адреса, часы, врачи</li>
+          <li>Заявки уходят в нужный филиал или колл-центр</li>
+          <li>Отчёт по филиалам: обращения, заявки, записи</li>
+        </ul>
+        <div class="price">
+          <b>от 15 000 ₽</b><span>аудит пропущенных по филиалам за 14 дней, засчитывается в проект</span>
+          <b>от 150 000 ₽</b><span>настройка для сети, обслуживание — по числу филиалов</span>
+        </div>
+      </div>
+    </div>
+    <div class="partners">
+      <h3>Маркетинговым агентствам и интеграторам</h3>
+      <p>Ваши клиенты платят за рекламу, а часть звонков с неё никто не берёт. Подключаем помощника вашим клиникам под вашим брендом: вы продаёте, мы настраиваем и поддерживаем. Условия обсуждаем индивидуально.</p>
+    </div>
+  </section>
+
+  <section id="demo">
+    <h2>Как звучит разговор</h2>
+    <div class="call">
+      <div class="line bot"><div class="who">Помощник</div><p>Здравствуйте! Стоматология, слушаю вас.</p></div>
+      <div class="line pat"><div class="who">Пациент</div><p>Можно завтра записаться? Зуб болит.</p></div>
+      <div class="line bot"><div class="who">Помощник</div><p>Сочувствую! Вам удобнее с утра или ближе к вечеру?</p></div>
+      <div class="line pat"><div class="who">Пациент</div><p>Вечером, после шести. Меня Ольга зовут.</p></div>
+      <div class="line bot"><div class="who">Помощник</div><p>Ольга, перезвонить вам на номер, с которого вы звоните?</p></div>
+      <div class="line pat"><div class="who">Пациент</div><p>Да.</p></div>
+      <div class="line bot"><div class="who">Помощник</div><p>Передала администратору: завтра после шести. Он перезвонит и подтвердит время. Всего доброго!</p></div>
+    </div>
+    <div class="copybox">
+      <code>+7 383 227-89-27</code>
+      <span class="small">Позвоните сами и поговорите с помощником как пациент.</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Первый пилот</h2>
+    <div class="stats">
+      <div class="stat"><b>8</b><span>обращений принял помощник за неделю</span></div>
+      <div class="stat"><b>5</b><span>обращений закончились записью</span></div>
+    </div>
+    <blockquote>
+      <p>«Перед нами стояла задача внедрить голосового помощника в работу организации. На протяжении всего проекта Артур всегда был на связи и помог настроить систему. Он проявил себя как ответственный и профессиональный специалист. Благодарю за качественную работу!»</p>
+      <cite>Михаил, клиника МедВайб, Новосибирск · пилот 27.09–04.10.2026</cite>
+    </blockquote>
+  </section>
+
+  <section id="start">
+    <h2>Как начать пилот</h2>
+    <ol class="steps">
+      <li><div><b>Напишите нам.</b> Название клиники и ИНН — кнопки ниже. Если хотите, сначала бесплатно посмотрим журнал звонков.</div></li>
+      <li><div><b>Получите счёт на 9 900 ₽.</b> Оплата счёта означает согласие с условиями договора-оферты ниже. Чек выдаём сразу после оплаты.</div></li>
+      <li><div><b>Настроим за 1–2 дня.</b> Название клиники, адрес, часы, услуги, кому отправлять заявки.</div></li>
+      <li><div><b>Пробный звонок вам — и запуск.</b> 14 дней пилота считаются с момента, когда вы приняли пробный звонок.</div></li>
+      <li><div><b>Отчёт в конце.</b> Сколько звонков подхватил помощник, сколько заявок, сколько записались и пришли. На 10–12-й день решаете, продолжать ли.</div></li>
+    </ol>
+    <div class="cta">
+      <h3>Начать пилот NEVERMISS</h3>
+      <p class="small">Нажмите — откроется чат с готовым сообщением. Останется вписать название клиники и ИНН. Можно написать и в MAX на тот же номер.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://t.me/+79137640735" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn" href="https://wa.me/79137640735?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%82%D0%B8%D0%BC%20%D0%BF%D0%B8%D0%BB%D0%BE%D1%82%20NEVERMISS.%0A%D0%9A%D0%BB%D0%B8%D0%BD%D0%B8%D0%BA%D0%B0%3A%20%0A%D0%98%D0%9D%D0%9D%3A%20" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      </div>
+      <div class="copybox">
+        <code id="msg">Здравствуйте! Хотим пилот NEVERMISS. Клиника: … ИНН: … С условиями оферты согласны.</code>
+        <button class="btn" id="copy" type="button">Скопировать</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Вопросы</h2>
+    <details><summary>Пациенты поймут, что это не человек?</summary><p class="offer">Могут понять, и это нормально. Помощник отвечает только тогда, когда иначе звонок ушёл бы в пустоту. Если спросят, он честно говорит, что это голосовой помощник клиники. Записывает и подтверждает время ваш администратор.</p></details>
+    <details><summary>Почему пилот платный?</summary><p class="offer">За 14 дней мы настраиваем сценарий под вашу клинику, ведём сервис и сверяем результат с вашим администратором. 9 900 ₽ засчитываются в подключение, если вы продолжаете. Если подключить по согласованной схеме не получится, вернём деньги за невыполненную часть.</p></details>
+    <details><summary>Что входит в 500 минут?</summary><p class="offer">Разговоры помощника с пациентами. Обычный разговор длится 1–2 минуты, то есть это 250–500 звонков в месяц. Если звонков больше, предложим тариф под ваш объём заранее, без неожиданных доплат.</p></details>
+    <details><summary>Это законно? Где хранятся данные?</summary><p class="offer">Помощник обрабатывает входящие обращения от имени клиники по её поручению (ч. 3 ст. 6 152-ФЗ). Распознавание речи и голос — на российских сервисах, данные хранятся в РФ. Помощник не спрашивает диагнозы и не даёт медицинских советов. Он не звонит пациентам сам и не делает рекламных обзвонов.</p></details>
+    <details><summary>Можно отключить?</summary><p class="offer">В любой момент: достаточно выключить переадресацию у оператора или написать нам. Оплачиваете только то, что уже сделано.</p></details>
+  </section>
+
+  <section>
+    <h2>Договор-оферта</h2>
+    <details>
+      <summary>Открыть полный текст оферты</summary>
+      <div class="offer">
+        <p class="small">Редакция от 09.10.2026</p>
+        <h3>1. Стороны и предмет</h3>
+        <p>Исполнитель — Алеханян Нина Сардаровна, плательщик налога на профессиональный доход (самозанятый); ИНН и банковские реквизиты указываются в счёте. Сервис оказывается под названием NEVERMISS. Заказчик — клиника (юридическое лицо или ИП), оплатившая счёт.</p>
+        <p>Исполнитель оказывает технические услуги: настройка и эксплуатация голосового помощника, который по согласованному с Заказчиком сценарию принимает входящие звонки, не принятые администратором Заказчика, и передаёт заявки Заказчику. Исполнитель не оказывает медицинских услуг, не ставит диагнозов, не заключает договоров от имени Заказчика, не совершает исходящих звонков пациентам и не принимает оплату от пациентов.</p>
+        <h3>2. Акцепт</h3>
+        <p>Оферта считается принятой, а договор заключённым в момент оплаты Заказчиком счёта Исполнителя, в котором указана ссылка на настоящую оферту (п. 3 ст. 438 ГК РФ).</p>
+        <h3>3. Стоимость</h3>
+        <ol>
+          <li>Пилот: 9 900 ₽ за настройку и 14 дней работы, если в счёте не указано иное. Срок пилота начинается с даты пробного звонка, принятого Заказчиком.</li>
+          <li>Продолжение: 14 900 ₽ за каждый календарный месяц, оплата авансом до начала месяца. Включено до 500 минут разговоров помощника; при большем объёме стороны заранее согласуют тариф.</li>
+          <li>Если Заказчик продолжает после пилота, стоимость пилота засчитывается в подключение.</li>
+          <li>Стоимость связи и речевых сервисов включена в цену услуги. НДС не облагается (НПД).</li>
+          <li>Для сетей клиник стоимость аудита и настройки указывается в счёте.</li>
+        </ol>
+        <h3>4. Отчёт</h3>
+        <p>По итогам пилота Исполнитель передаёт отчёт: число звонков, принятых помощником; уникальные обращения; заявки, переданные Заказчику; записи и визиты по данным Заказчика. В отчёте используются номера заявок вместо имён пациентов.</p>
+        <h3>5. Обязанности сторон</h3>
+        <ol>
+          <li>Исполнитель настраивает сервис за 1–2 рабочих дня после оплаты и получения данных, проводит пробный звонок Заказчику и передаёт отчёт.</li>
+          <li>Заказчик согласует сценарий, предоставляет данные клиники, настраивает переадресацию непринятых звонков у своего оператора и назначает сотрудника, который перезванивает по заявкам.</li>
+          <li>Если подключение по согласованной схеме невозможно по причинам на стороне Исполнителя, Исполнитель возвращает оплату за невыполненный объём.</li>
+        </ol>
+        <h3>6. Поручение на обработку персональных данных</h3>
+        <p>Заказчик (оператор) поручает Исполнителю обработку персональных данных обратившихся лиц в объёме, необходимом для оказания услуг (ч. 3 ст. 6 152-ФЗ):</p>
+        <ol>
+          <li>Данные: имя, номер телефона, сведения, которые человек сам сообщил в разговоре (цель обращения, удобное время).</li>
+          <li>Действия: сбор, запись, хранение, использование, передача Заказчику, удаление.</li>
+          <li>Цель: приём обращений от имени Заказчика и передача заявок.</li>
+          <li>Исполнитель соблюдает конфиденциальность, обеспечивает безопасность данных (ст. 19 152-ФЗ), обрабатывает их на территории РФ, не передаёт третьим лицам кроме используемых российских сервисов связи и распознавания речи, сообщает Заказчику об инцидентах в течение 24 часов.</li>
+          <li>Данные удаляются в течение 30 дней после окончания услуги или по требованию Заказчика.</li>
+        </ol>
+        <h3>7. Срок и прекращение</h3>
+        <p>Договор действует до полного исполнения обязательств. Любая сторона может отказаться от договора, уведомив другую сторону сообщением; оплачиваются фактически оказанные услуги.</p>
+        <h3>8. Ответственность</h3>
+        <p>Исполнитель отвечает за работу сервиса по согласованному сценарию. Исполнитель не гарантирует количество записей и не отвечает за перебои сетей связи и работу оборудования Заказчика.</p>
+        <h3>9. Контакты</h3>
+        <p>Артур, NEVERMISS: +7 913 764-07-35 (Telegram, WhatsApp, MAX). Сообщения в мессенджерах и по электронной почте признаются сторонами юридически значимыми.</p>
+      </div>
+    </details>
+  </section>
+
+  <p class="small">NEVERMISS · Новосибирск · +7 913 764-07-35</p>
+</div>
+
+<div class="bar">
+  <a class="btn primary" href="#start">Начать пилот</a>
+  <a class="btn" href="#demo">Послушать</a>
+</div>
+
+<script>
+document.getElementById('copy').addEventListener('click', async (e) => {
+  const t = document.getElementById('msg').textContent;
+  try { await navigator.clipboard.writeText(t); e.target.textContent = 'Скопировано'; }
+  catch (err) { const r = document.createRange(); r.selectNodeContents(document.getElementById('msg')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); e.target.textContent = 'Выделено — скопируйте'; }
+});
+</script>
+
+</body>
+</html>
